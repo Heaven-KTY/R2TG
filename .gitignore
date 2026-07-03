@@ -1,0 +1,14 @@
+node_modules/
+.npm-cache/
+.agents/
+.env
+.env.*
+!.env.example
+coverage/
+dist/
+*.tgz
+*.log
+certs/*.key
+certs/*.crt
+certs/*.pem
+certs/*.json

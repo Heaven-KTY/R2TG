@@ -1,0 +1,33 @@
+{
+  "name": "r2tg",
+  "version": "0.1.0",
+  "description": "Realtime Recovery Transport Gateway core and WebTransport adapter scaffold.",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=20.11"
+  },
+  "scripts": {
+    "cert:local": "node scripts/create-local-cert.js",
+    "auth:token": "node scripts/create-auth-token.js",
+    "check": "node --check scripts/create-local-cert.js && node --check scripts/create-auth-token.js && node --check src/client/r2tg-client.js && node --check src/core/constants.js && node --check src/core/crc32.js && node --check src/core/stableJson.js && node --check src/core/encoding.js && node --check src/core/datagram.js && node --check src/core/fec/xorParity.js && node --check src/core/fec/collector.js && node --check src/core/stateCache.js && node --check src/core/stream.js && node --check src/server/apiRouter.js && node --check src/server/eventRouter.js && node --check src/server/authTokens.js && node --check src/server/security.js && node --check src/server/routes/productionRoutes.js && node --check src/server/routes/demoRoutes.js && node --check src/server/routes/defaultApiRoutes.js && node --check src/server/gateway.js && node --check src/server/index.js",
+    "test": "node --test",
+    "verify": "npm run check && npm test",
+    "start": "node src/server/index.js"
+  },
+  "files": [
+    "README.md",
+    "src",
+    "docs/protocol.md",
+    "docs/client-library.md",
+    "docs/auth.md",
+    "scripts/create-auth-token.js"
+  ],
+  "optionalDependencies": {
+    "@fails-components/webtransport": "^1.6.4",
+    "@fails-components/webtransport-transport-http3-quiche": "^1.6.4"
+  },
+  "devDependencies": {
+    "selfsigned": "^5.5.0"
+  }
+}
